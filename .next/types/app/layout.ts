@@ -1,4 +1,4 @@
-// File: C:\Users\umara\OneDrive\Documents\chat_bot\app\layout.js
+// File: C:\Users\umara\OneDrive\Desktop\AI-Chatbot\app\layout.js
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

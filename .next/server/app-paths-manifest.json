@@ -1,6 +1,6 @@
 {
   "/page": "app/page.js",
-  "/signup/page": "app/signup/page.js",
-  "/chat/page": "app/chat/page.js",
-  "/signin/page": "app/signin/page.js"
+  "/signin/page": "app/signin/page.js",
+  "/api/chat/route": "app/api/chat/route.js",
+  "/chat/page": "app/chat/page.js"
 }
