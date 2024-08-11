@@ -112,6 +112,10 @@ const SignInPage = () => {
     router.push('/');
   };
 
+  const handleBack = () => {
+    router.back();
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -218,6 +222,16 @@ const SignInPage = () => {
             >
               Don&apos;t have an account? Sign Up
             </Button>
+            {/* Back Button */}
+            <Button
+              fullWidth
+              variant="outlined"
+              color="secondary"
+              sx={{ mt: 2, borderRadius: '20px', textTransform: 'none' }}
+              onClick={handleBack}
+            >
+              Back
+            </Button>
           </Box>
         </Paper>
       </Container>
@@ -225,4 +239,4 @@ const SignInPage = () => {
   );
 };
 
-export default SignInPage;
+export default SignInPage;

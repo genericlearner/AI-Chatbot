@@ -1,9 +1,8 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { AppBar, Toolbar, Typography, Button, IconButton, Menu, MenuItem, useMediaQuery, useTheme, Box, Container, Grid, Card, CardContent, CardMedia, Link, Paper } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { AppBar, Toolbar, Typography, Button, Box, Container, Grid, Card, CardContent, Link, useMediaQuery, useTheme } from '@mui/material';
+import { Link as ScrollLink } from 'react-scroll';
 
 // Custom SVG Icons
 function CustomIcon(props) {
@@ -26,14 +25,17 @@ function CustomIcon(props) {
     );
 }
 
+// Define the ContributorCard component
 function ContributorCard({ name, description, url }) {
     return (
         <Box
             sx={{
                 position: 'relative',
-                width: 300,
-                height: 200,
+                width: 300, // Increased width
+                height: 200, // Keep the height same
                 borderRadius: '12px',
+                background: 'linear-gradient(145deg, #2c2c2c, #3a3a3a)', // Light black gradient background
+                color: 'white',
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
                 overflow: 'hidden',
                 cursor: 'pointer',
@@ -56,16 +58,16 @@ function ContributorCard({ name, description, url }) {
                     height: '100%',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: '#f5f5f5',
+                    justifyContent: 'flex-start', // Align items to the start
+                    paddingLeft: 3, // Add padding to the left
+                    backgroundColor: 'transparent',
                     zIndex: 1,
                     transition: 'opacity 0.3s ease',
                     opacity: 1,
-                    textAlign: 'center',
-                    padding: 2,
+                    textAlign: 'left', // Align text to the left
                 }}
             >
-                <Typography variant="h6" fontWeight="bold">
+                <Typography variant="h6" fontWeight="bold" sx={{ fontSize: '1.4rem' }}> {/* Increased font size */}
                     {name}
                 </Typography>
             </Box>
@@ -79,23 +81,25 @@ function ContributorCard({ name, description, url }) {
                     height: '100%',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: '#ffffff',
+                    justifyContent: 'flex-start', // Align items to the start
+                    paddingLeft: 3, // Add padding to the left
+                    background: 'linear-gradient(145deg, #3a3a3a, #2c2c2c)', // Slightly lighter gradient for details
                     zIndex: 1,
                     transition: 'opacity 0.3s ease',
                     opacity: 0,
-                    textAlign: 'center',
+                    textAlign: 'left', // Align text to the left
                     padding: 2,
                     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                 }}
             >
-                <Typography variant="body2">
+                <Typography variant="body2" color="white" sx={{ fontSize: '1rem' }}> {/* Increased font size */}
                     {description}
                 </Typography>
             </Box>
         </Box>
     );
 }
+
 
 const features = [
     {
@@ -122,10 +126,6 @@ const LandingPage = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const router = useRouter();
 
-    const handleMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
     const handleSignIn = () => {
         router.push('/signin');
     };
@@ -134,70 +134,74 @@ const LandingPage = () => {
         router.push('/signup');
     };
 
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-    };
-
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <AppBar position="static" sx={{ backgroundColor: '#444', boxShadow: 'none' }}>
                 <Toolbar>
                     <CustomIcon style={{ marginRight: 16 }} />
                     <Typography variant="h6" fontWeight="bold" sx={{ flexGrow: 1, color: 'white' }}>
-                        My App
+                        C++ Companion
                     </Typography>
-                    {isMobile ? (
-                        <>
-                            <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleMenuOpen}>
-                                <MenuIcon />
-                            </IconButton>
-                            <Menu
-                                anchorEl={anchorEl}
-                                open={Boolean(anchorEl)}
-                                onClose={handleMenuClose}
-                                sx={{ '& .MuiPaper-root': { backgroundColor: '#444' } }}
-                            >
-                                <MenuItem onClick={handleSignIn} component="a" href="#" sx={{ color: 'white' }}>Sign In</MenuItem>
-                                <MenuItem onClick={handleSignUp} component="a" href="#" sx={{ color: 'white' }}>Sign Up</MenuItem>
-                            </Menu>
-                        </>
-                    ) : (
-                        <Box sx={{ display: 'flex', gap: 2 }}>
-                            <Button
-                                onClick={handleSignIn}
-                                sx={{
-                                    color: 'white',
-                                    textTransform: 'none',
-                                    border: '1px solid white',
-                                    '&:hover': { border: '1px solid #fff' }
-                                }}
-                                href="#"
-                            >
-                                Sign In
-                            </Button>
-                            <Button
-                                onClick={handleSignUp}
-                                variant="contained"
-                                sx={{
-                                    backgroundColor: 'white',
-                                    color: '#444',
-                                    textTransform: 'none',
-                                    '&:hover': {
-                                        backgroundColor: '#f5f5f5',
-                                        color: '#444'
-                                    }
-                                }}
-                                href="#"
-                            >
-                                Sign Up
-                            </Button>
-                        </Box>
-                    )}
+                    <Box sx={{ display: 'flex', gap: 4, marginRight: 2 }}>
+                        <ScrollLink
+                            to="home"
+                            smooth={true}
+                            duration={500}
+                            style={{ color: 'white', cursor: 'pointer', textDecoration: 'none' }}
+                        >
+                            Home
+                        </ScrollLink>
+                        <ScrollLink
+                            to="features"
+                            smooth={true}
+                            duration={500}
+                            style={{ color: 'white', cursor: 'pointer', textDecoration: 'none' }}
+                        >
+                            Features
+                        </ScrollLink>
+                        <ScrollLink
+                            to="about"
+                            smooth={true}
+                            duration={500}
+                            style={{ color: 'white', cursor: 'pointer', textDecoration: 'none' }}
+                        >
+                            About
+                        </ScrollLink>
+                    </Box>
+                    <Box sx={{ display: 'flex', gap: 2 }}>
+                        <Button
+                            onClick={handleSignIn}
+                            sx={{
+                                color: 'white',
+                                textTransform: 'none',
+                                border: '1px solid white',
+                                '&:hover': { border: '1px solid #fff' }
+                            }}
+                        >
+                            Sign In
+                        </Button>
+                        <Button
+                            onClick={handleSignUp}
+                            variant="contained"
+                            sx={{
+                                backgroundColor: 'white',
+                                color: '#444',
+                                textTransform: 'none',
+                                '&:hover': {
+                                    backgroundColor: '#f5f5f5',
+                                    color: '#444'
+                                }
+                            }}
+                        >
+                            Sign Up
+                        </Button>
+                    </Box>
                 </Toolbar>
             </AppBar>
 
             {/* Hero Section */}
             <Box
+                id="home"
                 component="main"
                 sx={{
                     flex: 1,
@@ -216,7 +220,7 @@ const LandingPage = () => {
             >
                 <Container maxWidth="md" sx={{ position: 'relative', zIndex: 2 }}>
                     <Typography variant="h3" fontWeight="bold" gutterBottom>
-                        Transform Your Ideas into Reality
+                        AI ChatBot
                     </Typography>
                     <Typography variant="h6" sx={{ mb: 4 }}>
                         Join us and experience cutting-edge solutions tailored to your needs.
@@ -240,7 +244,7 @@ const LandingPage = () => {
             </Box>
 
             {/* Features Section */}
-            <Container maxWidth="md" sx={{ py: 8 }}>
+            <Container id="features" maxWidth="md" sx={{ py: 8 }}>
                 <Typography variant="h4" fontWeight="bold" align="center" gutterBottom>
                     Features
                 </Typography>
@@ -263,7 +267,7 @@ const LandingPage = () => {
             </Container>
 
             {/* Contributor Section */}
-            <Box sx={{ py: 8, backgroundColor: '#f5f5f5' }}>
+            <Box id="about" sx={{ py: 8, background: 'linear-gradient(to right, #4a90e2, #9013fe)', color: 'white' }}>
                 <Container maxWidth="md">
                     <Typography variant="h4" fontWeight="bold" align="center" gutterBottom>
                         Meet Our Team
@@ -271,50 +275,42 @@ const LandingPage = () => {
                     <Grid container spacing={4} justifyContent="center">
                         <Grid item xs={12} sm={6} md={3}>
                             <ContributorCard
-                                name="John Doe"
-                                description="Lead Developer"
-                                url="https://linkedin.com/in/johndoe"
+                                name="Gaurav Singh"
+                                description="Backend Developer"
+                                url="https://linkedin.com/in/gavksingh"
                             />
                         </Grid>
                         <Grid item xs={12} sm={6} md={3}>
                             <ContributorCard
-                                name="Jane Smith"
-                                description="UX Designer"
-                                url="https://linkedin.com/in/janesmith"
+                                name="Md Umaruddin"
+                                description="Backend Developer"
+                                url="https://www.linkedin.com/in/mohammedumaruddin/"
                             />
                         </Grid>
                         <Grid item xs={12} sm={6} md={3}>
                             <ContributorCard
-                                name="Alice Johnson"
-                                description="Front-end Developer"
-                                url="https://linkedin.com/in/alicejohnson"
+                                name="Adriana Caraeni"
+                                description="Frontend Developer"
+                                url="https://www.linkedin.com/in/adriana-caraeni/"
                             />
                         </Grid>
                         <Grid item xs={12} sm={6} md={3}>
                             <ContributorCard
-                                name="Bob Brown"
-                                description="Back-end Developer"
-                                url="https://linkedin.com/in/bobbrown"
+                                name="Cadence Young"
+                                description="Frontend Developer"
+                                url="https://www.linkedin.com/in/cadence-young-35022831b/"
                             />
                         </Grid>
                     </Grid>
                 </Container>
             </Box>
 
-            {/* Footer
-            <Box sx={{ py: 2, background: 'linear-gradient(to bottom, #333, #555)', color: 'white', textAlign: 'center' }}>
-                <Typography variant="body2">© 2024 My App. All rights reserved.</Typography>
-                <Box sx={{ mt: 1 }}>
-                    <Link href="#" color="inherit" sx={{ mx: 1 }}>
-                        Privacy Policy
-                    </Link>
-                    <Link href="#" color="inherit" sx={{ mx: 1 }}>
-                        Terms of Service
-                    </Link>
-                </Box>
-            </Box> */}
+            {/* Footer */}
+            <Box sx={{ backgroundColor: '#444', color: 'white', textAlign: 'center', py: 2 }}>
+                <Typography variant="body2">&copy; 2024 C++ Companion. All rights reserved.</Typography>
+            </Box>
         </Box>
     );
 };
 
-export default LandingPage;
+export default LandingPage;

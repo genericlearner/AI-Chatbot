@@ -228,6 +228,14 @@ const SignUpPage = () => {
               >
                 Already have an account? Sign In
               </Button>
+              <Button
+                fullWidth
+                variant="outlined"
+                sx={{ color: theme.palette.text.primary, mt: 3, borderRadius: '20px', textTransform: 'none' }}
+                onClick={ToHome}
+              >
+                Back to Home
+              </Button>
             </Box>
           </Box>
         </Paper>
@@ -236,4 +244,4 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default SignUpPage;

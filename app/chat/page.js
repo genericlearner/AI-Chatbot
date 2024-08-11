@@ -192,7 +192,7 @@ const SupportPage = () => {
           <AssistantIcon />
 
           <Typography variant="h6" style={{ flexGrow: 1, marginLeft: 10 }}>
-            AI Support
+            C++ AI Tutor
           </Typography>
 
           <IconButton onClick={openProfileMenu} sx={{ marginLeft: 'auto' }}>
@@ -224,10 +224,10 @@ const SupportPage = () => {
         {!inputPosition ? (
           <Container maxWidth="md" style={{ textAlign: 'center' }}>
             <Typography variant="h3" component="h1" gutterBottom align="center" style={{ color: '#E0E0E0' }} mt="15vh">
-              Seamless Customer Support with AI
+              Your Own C++ Tutor
             </Typography>
             <Typography variant="h5" paragraph align="center" style={{ color: '#A0A0A0' }}>
-              Our AI-powered support is here to assist with all your queries. Get real-time help and personalized answers.
+              Our AI-powered C++ support is here to assist with all your queries. Get real-time help and personalized answers.
             </Typography>
             <Box mt={4} display="flex" justifyContent="center">
               <TextField
@@ -278,105 +278,114 @@ const SupportPage = () => {
             </Box>
           </Container>
         ) : (
-          <Container maxWidth="md">
-            <Box
-              sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                paddingBottom: '16px',
-                borderRadius: '8px',
-              }}
-            >
-              <Stack spacing={2}>
-                {chatHistory.map((msg, index) => (
-                  <Grow key={index} in>
-                    <Box
-                      sx={{
-                        alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start',
-                        backgroundColor: msg.role === 'user' ? '#3E7CFC' : '#2C2C2C',
-                        color: msg.role === 'user' ? '#E0E0E0' : '#E0E0E0',
-                        borderRadius: '12px',
-                        padding: '10px 16px',
-                        maxWidth: '75%',
-                        wordBreak: 'break-word',
-                        boxShadow: 3,
-                        position: 'relative',
-                      }}
-                    >
-                      <ReactMarkdown
-                        children={msg.content}
-                        remarkPlugins={[remarkGfm]}
-                        rehypePlugins={[rehypeHighlight]}
-                      />
-                    </Box>
-                  </Grow>
-                ))}
-              </Stack>
-              <div ref={chatEndRef} />
-            </Box>
-          </Container>
+          <Container
+  maxWidth="md"
+  style={{
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    overflowY: 'auto',  // Allow vertical scrolling
+    maxHeight: '90vh',  // Set a maximum height
+    paddingBottom: '16px',
+    borderRadius: '8px',
+  }}
+>
+  <Box
+    sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      paddingBottom: '16px',
+      borderRadius: '8px',
+    }}
+  >
+    <Stack spacing={2}>
+      {chatHistory.map((msg, index) => (
+        <Grow key={index} in>
+          <Box
+            sx={{
+              alignSelf: msg.role === 'user' ? 'flex-end' : 'flex-start',
+              backgroundColor: msg.role === 'user' ? '#3E7CFC' : '#2C2C2C',
+              color: msg.role === 'user' ? '#E0E0E0' : '#E0E0E0',
+              borderRadius: '12px',
+              padding: '10px 16px',
+              maxWidth: '75%',
+              wordBreak: 'break-word',
+              boxShadow: 3,
+              position: 'relative',
+            }}
+          >
+            <ReactMarkdown
+              children={msg.content}
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeHighlight]}
+            />
+          </Box>
+        </Grow>
+      ))}
+    </Stack>
+    <div ref={chatEndRef} />
+  </Box>
+</Container>
         )}
       </main>
 
       <Container
-        maxWidth="md"
-        style={{
-          display: 'flex',
-          padding: '12px 0',
-          backgroundColor: '#181818',
-          borderTop: '1px solid #444',
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          right: 0,
-        }}
-      >
-        <TextField
-          variant="outlined"
-          autoComplete="off"
-          placeholder="Ask me anything..."
-          value={currentInput}
-          onChange={(e) => setCurrentInput(e.target.value)}
-          onKeyPress={handleEnterPress}
-          InputProps={{
-            endAdornment: (
-              <IconButton onClick={handleSendMessage} disabled={processing}>
-                <Send style={{ color: '#E0E0E0' }} />
-              </IconButton>
-            ),
-          }}
-          fullWidth
-          sx={{
-            backgroundColor: '#2C2C2C',
-            color: '#E0E0E0',
-            borderRadius: '50px',
-            paddingLeft: '15px',
-
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '50px',
-
-              '& fieldset': {
-                borderColor: '#666',
-              },
-              '&:hover fieldset': {
-                borderColor: '#888',
-              },
-              '&.Mui-focused fieldset': {
-                borderColor: '#E0E0E0',
-              },
-            },
-            '& .MuiInputBase-input': {
-              color: '#E0E0E0',
-            },
-            '& .MuiInputLabel-root': {
-              color: '#BBBBBB',
-            },
-            '& .MuiInputLabel-root.Mui-focused': {
-              color: '#E0E0E0',
-            },
-          }}
-        />
-      </Container>
+  maxWidth="md"
+  style={{
+    display: 'flex',
+    padding: '12px 0',
+    backgroundColor: '#181818',
+    borderTop: '1px solid #444',
+    position: 'fixed',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    maxHeight: '100px',  // Set a maximum height
+  }}
+>
+  <TextField
+    variant="outlined"
+    autoComplete="off"
+    placeholder="Ask me anything..."
+    value={currentInput}
+    onChange={(e) => setCurrentInput(e.target.value)}
+    onKeyPress={handleEnterPress}
+    InputProps={{
+      endAdornment: (
+        <IconButton onClick={handleSendMessage} disabled={processing}>
+          <Send style={{ color: '#E0E0E0' }} />
+        </IconButton>
+      ),
+    }}
+    fullWidth
+    sx={{
+      backgroundColor: '#2C2C2C',
+      color: '#E0E0E0',
+      borderRadius: '50px',
+      '& .MuiOutlinedInput-root': {
+        borderRadius: '50px',
+        '& fieldset': {
+          borderColor: '#666',
+        },
+        '&:hover fieldset': {
+          borderColor: '#888',
+        },
+        '&.Mui-focused fieldset': {
+          borderColor: '#E0E0E0',
+        },
+      },
+      '& .MuiInputBase-input': {
+        color: '#E0E0E0',
+      },
+      '& .MuiInputLabel-root': {
+        color: '#BBBBBB',
+      },
+      '& .MuiInputLabel-root.Mui-focused': {
+        color: '#E0E0E0',
+      },
+    }}
+  />
+</Container>
     </div>
   );
 };
