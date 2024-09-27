@@ -8,7 +8,18 @@
 
 ## Project Overview
 
+![Chatbot Interaction](snapshots/chatbot.png)
+*Figure 5: Chatbot interaction with users regarding programming concepts.*
+
 This AI-powered chatbot is designed to assist students in learning computer programming, with a primary focus on **C++**. The chatbot helps users by providing explanations, answering queries, and offering guidance on programming concepts, syntax, and problem-solving techniques. 
+
+![Home Screen](snapshots/home.png)
+*Figure 1: Chatbot home screen.*
+
+
+![Home Screen 2](snapshots/home2.png)
+*Figure 2: Alternative view of the chatbot home screen.*
+
 
 In addition to its core programming assistance, the chatbot supports **multiple languages**, allowing users to interact with the bot in various languages based on their preference. This feature ensures accessibility to a wider range of users worldwide.
 
@@ -21,6 +32,12 @@ In addition to its core programming assistance, the chatbot supports **multiple 
 - **Multi-language Support**: The chatbot allows users to switch between languages, making it easier for non-English speaking students to learn and understand programming concepts.
 
 - **Firebase Authentication**: User authentication is handled through Firebase, ensuring secure access to the chatbot and personalized interactions for each user.
+
+![Sign In Screen](snapshots/sign in.png)
+*Figure 3: User sign-in interface.*
+
+![Sign Up Screen](snapshots/signup.png)
+*Figure 4: User sign-up interface.*
 
 - **React and Next.js**: The front-end of the chatbot is built using React, providing a dynamic and interactive user interface, while Next.js powers the backend, delivering efficient server-side rendering and routing.
 
