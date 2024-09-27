@@ -35,10 +35,12 @@ In addition to its core programming assistance, the chatbot supports **multiple 
   
 - **Multi-language Support**: The chatbot allows users to switch between languages, making it easier for non-English speaking students to learn and understand programming concepts.
 
+
+![Sign In Screen](snapshots/sign_in.png)
+*Figure 3: User sign-in interface.* 
+
 - **Firebase Authentication**: User authentication is handled through Firebase, ensuring secure access to the chatbot and personalized interactions for each user.
 
-![Sign In Screen](snapshots/sign in.png)
-*Figure 3: User sign-in interface.*
 
 ![Sign Up Screen](snapshots/signup.png)
 *Figure 4: User sign-up interface.*
