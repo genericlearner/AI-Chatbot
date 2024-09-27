@@ -3,13 +3,14 @@
 ### Developed by:
 - [**Gaurav Kumar Singh**] [Profile](https://github.com/gavksingh)
 - [**Mohd Umar**] [Profile](https://github.com/genericlearner)
-- [**Cadence Young**] [Profile](https://github.com/cadence-github-username)
-- [**Adriana Caraeni**] [Profile](https://github.com/adriana-github-username)
+- [**Cadence Young**] [Profile](https://github.com/cadenceyoun)
+- [**Adriana Caraeni**] [Profile](https://github.com/AdrianaCaraeni)
 
 ## Project Overview
 
-![Chatbot Interaction](snapshots/chatbot.png)
-*Figure 5: Chatbot interaction with users regarding programming concepts.*
+![Chatbot Interaction](snapshots/chatbot_1.png)
+*Figure 5: Chatbot Welcome page.*
+
 
 This AI-powered chatbot is designed to assist students in learning computer programming, with a primary focus on **C++**. The chatbot helps users by providing explanations, answering queries, and offering guidance on programming concepts, syntax, and problem-solving techniques. 
 
@@ -27,6 +28,9 @@ In addition to its core programming assistance, the chatbot supports **multiple 
 
 - **C++ Programming Assistance**: The bot specializes in helping students learn C++, covering topics like data structures, algorithms, object-oriented programming, and more.
   
+  ![Chatbot Interaction](snapshots/chatbot.png)
+*Figure 5: Chatbot interaction with users regarding programming concepts.*
+
 - **Interactive Q&A**: Students can ask questions about specific programming concepts, and the chatbot will provide detailed explanations and code snippets as needed.
   
 - **Multi-language Support**: The chatbot allows users to switch between languages, making it easier for non-English speaking students to learn and understand programming concepts.
